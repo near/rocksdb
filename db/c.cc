@@ -2518,6 +2518,11 @@ void rocksdb_block_based_options_destroy(
   delete options;
 }
 
+void rocksdb_block_based_options_set_checksum(
+    rocksdb_block_based_table_options_t* opt, char v) {
+  opt->rep.checksum = static_cast<ROCKSDB_NAMESPACE::ChecksumType>(v);
+}
+
 void rocksdb_block_based_options_set_block_size(
     rocksdb_block_based_table_options_t* options, size_t block_size) {
   options->rep.block_size = block_size;
@@ -4581,6 +4586,11 @@ void rocksdb_lru_cache_options_destroy(rocksdb_lru_cache_options_t* opt) {
 void rocksdb_lru_cache_options_set_capacity(rocksdb_lru_cache_options_t* opt,
                                             size_t capacity) {
   opt->rep.capacity = capacity;
+}
+
+void rocksdb_lru_cache_options_set_num_shard_bits(
+    rocksdb_lru_cache_options_t* opt, int num_shard_bits) {
+  opt->rep.num_shard_bits = num_shard_bits;
 }
 
 void rocksdb_lru_cache_options_set_memory_allocator(

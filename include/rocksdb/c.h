@@ -942,6 +942,8 @@ extern ROCKSDB_LIBRARY_API rocksdb_block_based_table_options_t*
 rocksdb_block_based_options_create(void);
 extern ROCKSDB_LIBRARY_API void rocksdb_block_based_options_destroy(
     rocksdb_block_based_table_options_t* options);
+extern ROCKSDB_LIBRARY_API void rocksdb_block_based_options_set_checksum(
+    rocksdb_block_based_table_options_t*, char);
 extern ROCKSDB_LIBRARY_API void rocksdb_block_based_options_set_block_size(
     rocksdb_block_based_table_options_t* options, size_t block_size);
 extern ROCKSDB_LIBRARY_API void
@@ -1921,6 +1923,8 @@ extern ROCKSDB_LIBRARY_API void rocksdb_lru_cache_options_destroy(
     rocksdb_lru_cache_options_t*);
 extern ROCKSDB_LIBRARY_API void rocksdb_lru_cache_options_set_capacity(
     rocksdb_lru_cache_options_t*, size_t);
+extern ROCKSDB_LIBRARY_API void rocksdb_lru_cache_options_set_num_shard_bits(
+    rocksdb_lru_cache_options_t*, int);
 extern ROCKSDB_LIBRARY_API void rocksdb_lru_cache_options_set_memory_allocator(
     rocksdb_lru_cache_options_t*, rocksdb_memory_allocator_t*);
 
